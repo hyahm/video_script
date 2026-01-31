@@ -1,0 +1,62 @@
+# 请先安装 git python3.8 ffmpeg
+
+- name: downloader
+  lookPath:
+    - command: git
+      install: yum -y install git
+    - path: /home/app
+      install: mkdir -p /home/app
+    - path: /home/app/u5
+      install: cd /home/app && git clone git@47.107.77.123:root/u5.git
+  # 脚本执行的根目录
+  dir: /home/app/u5
+  # 启动脚本
+  command: "python3 downloader.py "
+  # replicate， 开启副本数
+  replicate: 1
+
+- name: resource
+  # 脚本执行
+  dir: /home/app/u5
+  # 启动脚本
+  command: "python3 resource.py"
+  # replicate， 开启副本数
+  replicate: 1
+
+
+- name: publish
+  # 脚本执行的根目录
+  dir: /home/app/u5
+  # 启动脚本
+  command: "python3 publish.py "
+  # replicate， 开启副本数
+  replicate: 2
+
+- name: pcli
+  dir: /home/app/prometheus-client
+  command: "./pc"
+
+- name: hugo_downloader
+  # 脚本执行的根目录
+  dir: /home/app/hugo_scripts
+  command: "python3 downloader.py "
+
+- name: hugo_pool
+  # 脚本执行的根目录
+  dir: /home/app/hugo_scripts
+  command: "python3 pool.py "
+
+- name: hugo_resource
+  # 脚本执行的根目录
+  dir: /home/app/hugo_scripts
+  command: "python3 resource.py "
+
+- name: hugo_publish
+  # 脚本执行的根目录
+  dir: /home/app/hugo_scripts
+  command: "python3 publish.py "
+
+- name: hugo_rotate
+  # 脚本执行的根目录
+  dir: /home/app/hugo_scripts
+  command: "python3 rotate.py "

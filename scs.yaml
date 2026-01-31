@@ -1,0 +1,20 @@
+- name: hugo_loopftp
+  dir: /home/app/hugo_scripts
+  command: python3 loopftp.py
+- name: hugo_downloader
+  dir: /home/app/hugo_scripts
+  command: python3 downloader.py
+  update: git pull
+- name: hugo_pool
+  dir: /home/app/hugo_scripts
+  command: python3 pool.py
+  update: git pull
+- name: hugo_resource
+  dir: /home/app/hugo_scripts
+  command: python3 resource.py
+- name: hugo_publish
+  dir: /home/app/hugo_scripts
+  command: python3 publish.py
+- name: hugo_rotate
+  dir: /home/app/hugo_scripts
+  command: python3 rotate.py

@@ -1,0 +1,54 @@
+# -*- coding: UTF-8 -*-
+
+CONFIG = {}
+# ftp 配置
+CONFIG["ftp_host"] = "127.0.0.1"
+CONFIG["ftp_port"] = 21
+CONFIG["ftp_user"] = "admin"
+CONFIG["ftp_pwd"] = "poaihopdshogiho234"
+CONFIG["ftp_dir"] = "/"  # FTP的路径
+CONFIG["debug"] = False
+# 资源机器默认支持的变量
+CONFIG["date"] = "${YYYYMMDD}"
+# 当指定机器后， 必定是某台机器上执行， 用来调试
+CONFIG["domain"] = ""
+# 队列长度， 建议等于机器开启publish.py 数量
+CONFIG["cache"] = 1
+# 单位Mb
+CONFIG["video_size"] = 6144
+# 资源机器的目录
+CONFIG["resource_dir"] = "/home/hugo/"
+
+
+# 本地资源目录
+CONFIG["local_dir"] = "C:\\work\\hugo\\hugo_scripts\\video_source"
+
+# 远程ssh用户
+CONFIG["ssh_user"] = "root"
+
+# # php 接口
+php_ip = "http://23.225.165.42:9999"
+
+
+# Redis
+CONFIG["ftp_redis"] = {
+    "host": "127.0.0.1",
+    "password": "hugonodahaiten",
+    "port": 6379,
+    "db": 10,
+    "decode_responses": True
+}
+
+CONFIG["local_redis"] = {
+    "host": "127.0.0.1",
+    "password": "hugonodahaiten",
+    "port": 6379,
+    "db": 10,
+    "decode_responses": True
+}
+
+
+CONFIG["scs"] = {
+    "on": True,
+    "domain": "https://127.0.0.1:11111"
+}

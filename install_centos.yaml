@@ -1,0 +1,24 @@
+- name: hugo_loopftp
+  preStart:
+    - path: config.py
+      srcFile: config_scs.temp
+      dstFile: config.py
+  command: python3 loopftp.py
+  replicate: 1
+- name: hugo_downloader
+  command: python3 downloader.py
+  replicate: 1
+  update: git pull
+- name: hugo_pool
+  command: python3 pool.py
+  replicate: 1
+  update: git pull
+- name: hugo_resource
+  command: python3 resource.py
+  replicate: 1
+- name: hugo_publish
+  command: python3 publish.py
+  replicate: 1
+- name: hugo_rotate
+  command: 'python3 rotate.py '
+  replicate: 1
